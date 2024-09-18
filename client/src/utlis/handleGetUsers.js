@@ -3,12 +3,9 @@ import axios from "axios";
 const setUserOptionsState = (usersOptionState, firstGetUsers)=>{
     let userOptions = {...usersOptionState}
     if (firstGetUsers){
-        console.log('firstGetUsers')
         userOptions.pageSize=20
-        userOptions.page = 1
     }
     else{
-        console.log('add users')
         userOptions.pageSize=10
     }
     return userOptions

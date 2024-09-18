@@ -10,7 +10,6 @@ import DownloadCSV from "./downloadCSV";
 
 const ToolBar = ({handleGetUsers}) => {
     const dispatch = useDispatch()
-    let loading = useSelector(state => state.user.loading)
     let users = useSelector(state => state.user.users)
     let userOptions = useSelector(state => state.user.userOptions)
     let errorsPerRecord = userOptions.errorsPerRecord
@@ -27,11 +26,11 @@ const ToolBar = ({handleGetUsers}) => {
     };
 
     const handleErrorChange = (e) => {
-        setError(e, dispatch, loading)
+        setError(e, dispatch, handleGetUsers)
     };
 
     const handleSeedChange = (e) => {
-        setSeed(e, dispatch)
+        setSeed(e, dispatch, handleGetUsers)
     }
 
     const handleErrorInputFocus = () => {

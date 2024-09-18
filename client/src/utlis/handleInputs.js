@@ -16,14 +16,14 @@ const generateRandomNumber = (min, max)=>{
     return Math.floor(Math.random() * (max - min + 1)) + min;
 }
 
-export const setError = (e, dispatch) => {
+export const setError = (e, dispatch, handleGetUsers) => {
     setState(e, dispatch, 'errorsPerRecord')
-    dispatch(getUsers(true))
+    handleGetUsers(true)
 };
 
-export const setSeed = (e, dispatch) => {
+export const setSeed = (e, dispatch, handleGetUsers) => {
     setState(e, dispatch, 'seed')
-    dispatch(getUsers(true))
+    handleGetUsers(true)
 }
 
 export const setErrorInputOnFocus = (dispatch, errorsPerRecord, handleGetUsers) => {
