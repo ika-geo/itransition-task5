@@ -1,14 +1,15 @@
 import axios from "axios";
 
-const setUserOptionsState = (usersOptionState, firstGetUsers, usersLength=0)=>{
+const setUserOptionsState = (usersOptionState, firstGetUsers)=>{
     let userOptions = {...usersOptionState}
     if (firstGetUsers){
-        if (usersLength>20){
-            userOptions.pageSize=usersLength
-        }
-        else{
-            userOptions.pageSize=20
-        }
+        console.log('firstGetUsers')
+        userOptions.pageSize=20
+        userOptions.page = 1
+    }
+    else{
+        console.log('add users')
+        userOptions.pageSize=10
     }
     return userOptions
 }
@@ -20,15 +21,15 @@ const handleFirstGetUsers=(userOptionsState, baseUrl)=>{
 }
 
 const handleAddUsers=(userOptionsState, baseUrl)=>{
-    return axios.post(baseUrl, userOptionsState)
+    let userOptions = setUserOptionsState(userOptionsState, false)
+    return axios.post(baseUrl, userOptions)
 }
 
 export const handleGetUser = async (setNewUsers, getState, baseUrl)=>{
     const userOptionsSTate = getState().user.userOptions
-    const usersLength = getState().user.users.length
     let response
     if (setNewUsers){
-        response = await handleFirstGetUsers(userOptionsSTate, baseUrl, usersLength)
+        response = await handleFirstGetUsers(userOptionsSTate, baseUrl)
     }
     else{
         response = await handleAddUsers(userOptionsSTate, baseUrl)

@@ -7,6 +7,7 @@ import {LazyLoad} from "./utlis/lazyLoad";
 import UsersHeader from "./components/UsersHeader";
 import UsersItem from "./components/UsersItem";
 import ToolBar from "./components/ToolBar";
+import {setDefaultOptions} from "./utlis/handleInputs";
 
 function App() {
     const dispatch = useDispatch()
@@ -26,6 +27,7 @@ function App() {
     }
 
     const handleGetUsers = ()=>{
+        setDefaultOptions(dispatch)
         dispatch(getUsers(true))
     }
 

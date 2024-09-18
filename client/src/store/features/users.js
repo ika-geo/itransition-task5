@@ -15,7 +15,7 @@ export const userOptions = {
     "country": countries[0].id,
     "errorsPerRecord": 0,
     "seed": 0,
-    "pageSize": 10,
+    "pageSize": 20,
     "page": 1
 }
 

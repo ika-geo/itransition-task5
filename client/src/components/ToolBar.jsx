@@ -16,8 +16,6 @@ const ToolBar = ({handleGetUsers}) => {
     let errorsPerRecord = userOptions.errorsPerRecord
     let seed = userOptions.seed
 
-    console.log(userOptions)
-
     const handleCountryChange = async (e) => {
         let countryId = e.target.value
         dispatch(setOptions({"country": countryId}))

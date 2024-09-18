@@ -8,15 +8,17 @@ const setState = (e, dispatch, stateOption) => {
     }
 }
 
+export const setDefaultOptions = (dispatch)=>{
+    dispatch(setOptions({page: 1, pageSize:20}))
+}
+
 const generateRandomNumber = (min, max)=>{
     return Math.floor(Math.random() * (max - min + 1)) + min;
 }
 
-export const setError = (e, dispatch, loading) => {
+export const setError = (e, dispatch) => {
     setState(e, dispatch, 'errorsPerRecord')
-    if (!loading) {
-        dispatch(getUsers(true))
-    }
+    dispatch(getUsers(true))
 };
 
 export const setSeed = (e, dispatch) => {
