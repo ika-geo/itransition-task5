@@ -1,14 +1,9 @@
-export const LazyLoad = (addUsers, setLoader, loading)=>{
+export const LazyLoad = (addUsers, loading)=>{
     const handleScroll = () => {
         const scrollPosition = window.innerHeight + window.scrollY;
         const threshold = document.body.offsetHeight - 50;
         if (scrollPosition >= threshold) {
-            setLoader()
-            setTimeout(()=>{
-                if (loading){
-                    addUsers()
-                }
-            }, 200)
+            addUsers()
         }
     };
     window.addEventListener('scroll', handleScroll);
