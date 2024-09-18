@@ -2,8 +2,8 @@ import {createAsyncThunk, createSlice} from '@reduxjs/toolkit'
 import {handleGetUser} from "../../utlis/handleGetUsers";
 
 
-// const baseUrl = 'http://localhost:5000/api/data'
-const baseUrl = 'https://itransition-task5-server.vercel.app/api/data'
+const baseUrl = 'http://localhost:5000/api/data'
+// const baseUrl = 'https://itransition-task5-server.vercel.app/api/data'
 
 export const countries = [
     {id:"US", name: "USA"},
@@ -37,9 +37,6 @@ export const UserSlice = createSlice({
     name: 'counter',
     initialState,
     reducers: {
-        setLoader: (state, action) => {
-            state.loading = action.payload
-        },
         setOptions: (state, action) => {
             state.userOptions = {...state.userOptions,...action.payload}
         },
@@ -64,6 +61,6 @@ export const UserSlice = createSlice({
     },
 })
 
-export const { setLoader, setOptions, increasePage } = UserSlice.actions
+export const { setOptions, increasePage } = UserSlice.actions
 
 export default UserSlice.reducer

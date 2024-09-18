@@ -30,7 +30,7 @@ function App() {
     }
 
     if (!loading) {
-        LazyLoad(handleAddUsers)
+        LazyLoad(handleAddUsers, loading)
     }
 
     return (
