@@ -1,4 +1,4 @@
-export const LazyLoad = (addUsers, loading)=>{
+export const LazyLoad = (addUsers)=>{
     const handleScroll = () => {
         const scrollPosition = window.innerHeight + window.scrollY;
         const threshold = document.body.offsetHeight - 50;
